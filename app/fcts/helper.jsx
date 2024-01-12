@@ -2,6 +2,7 @@
 import Cookies from "js-cookie"
 export const SITEWEB_URL="http://localhost:3002/";
 export const BACKEND_URL="http://localhost/root/backend-rva-siteweb/";
+export const oldUrl="http://projetsite.oxerode.com/"
 // export const SITEWEB_URL="https://indexrdc.com/";
 // export const BACKEND_URL="https://bac.indexrdc.com/";
 

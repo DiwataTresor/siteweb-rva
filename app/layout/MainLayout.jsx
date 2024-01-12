@@ -3,6 +3,7 @@ import React from 'react'
 import { NextUIProvider } from "@nextui-org/react";
 import Header from '../components/Header/Header.jsx';
 import { bg } from '../CONST/global.jsx';
+import Footer from '../components/footer/Footer.jsx';
 
 
 
@@ -13,6 +14,9 @@ const MainLayout = ({ children }) => {
           <Header />
         </div>
         {children}
+        <footer>
+          <Footer />
+        </footer>
     </NextUIProvider>
   )
 }

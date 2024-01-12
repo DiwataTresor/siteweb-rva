@@ -9,6 +9,7 @@ import { CaretDownFilled, GlobalOutlined } from '@ant-design/icons';
 import { Divider } from 'antd';
 import { Facebook, Globe2Icon, MailCheckIcon, PhoneCall, TwitterIcon, X } from 'lucide-react';
 import * as Select from '@radix-ui/react-select';
+import {greatvibes,inter,lora,pignon} from "./../../style/fonts"
 
 
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons';
@@ -34,15 +35,13 @@ const Header = () => {
                 </Select.ScrollUpButton>
                 <Select.Viewport className="SelectViewport">
                   <Select.Group>
-                    <Select.Label className="SelectLabel">Fruits</Select.Label>
-                    <SelectItem value="apple">Apple</SelectItem>
-                    <SelectItem value="banana">Banana</SelectItem>
-                    <SelectItem value="blueberry">Blueberry</SelectItem>
-                    <SelectItem value="grapes">Grapes</SelectItem>
-                    <SelectItem value="pineapple">Pineapple</SelectItem>
+                    <Select.Label className="SelectLabel">Langue</Select.Label>
+                    <SelectItem value="fr">Francais</SelectItem>
+                    <SelectItem value="en">English</SelectItem>
+                    
                   </Select.Group>
 
-                  <Select.Separator className="SelectSeparator" />
+                  {/* <Select.Separator className="SelectSeparator" />
 
                   <Select.Group>
                     <Select.Label className="SelectLabel">Vegetables</Select.Label>
@@ -63,7 +62,7 @@ const Header = () => {
                     <SelectItem value="chicken">Chicken</SelectItem>
                     <SelectItem value="lamb">Lamb</SelectItem>
                     <SelectItem value="pork">Pork</SelectItem>
-                  </Select.Group>
+                  </Select.Group> */}
                 </Select.Viewport>
                 <Select.ScrollDownButton className="SelectScrollButton">
                   <ChevronDownIcon />
@@ -77,6 +76,9 @@ const Header = () => {
             <TwitterIcon size={16} fill='white' color='white' />
             {/* <TwitterIcon /> */}
           </div>
+        </div>
+        <div className='text-white text-3xl font-bold' >
+                  <span className={pignon.style}>Régie des Voies Aèriennes</span>
         </div>
         <div className='flex'>
           <div className='text-sm text-white flex gap-2 border-r px-3 items-center justify-center'>
@@ -92,7 +94,7 @@ const Header = () => {
       {/* <Divider className='border-gray-400' /> */}
       <div className='flex justify-between border-b-0 border-slate-400'>
         <div>
-          <Image src={SITEWEB_URL + "logoRva.png"} width={230} height={200} />
+          <Image src={SITEWEB_URL + "logoRva.png"} width={260} height={230} className='border-r-0' />
         </div>
         <NavigationMenu.Root className="NavigationMenuRoot">
           <NavigationMenu.List className="NavigationMenuList">
@@ -189,6 +191,9 @@ const Header = () => {
             <NavigationMenu.Viewport className="NavigationMenuViewport" />
           </div>
         </NavigationMenu.Root>
+        <div className='w-[200px]'>
+          &nbsp;
+        </div>
       </div>
     </div>
   );

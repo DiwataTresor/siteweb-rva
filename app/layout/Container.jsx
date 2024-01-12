@@ -11,7 +11,7 @@ const Container = ({children,header, headerBg, headerBgImg}) => {
            {header}
           </div>
         }
-        <div className='pt-4 mb-8'>
+        <div className='pt-4 mb-0'>
         {children}
         </div>
     </div>

@@ -12,6 +12,8 @@ import { textColor } from '../CONST/global';
 import { CheckCircle } from 'lucide-react';
 import { Button } from '@nextui-org/react';
 import { SITEWEB_URL } from '../fcts/helper';
+import slide1 from './../assets/slide1.jpeg'
+import Image from "next/image"
 
 const Slide = () => {
     const swiper = useSwiper();
@@ -120,6 +122,12 @@ const Slide = () => {
                         </div>
                     </div>
                 </SwiperSlide>
+                {/* <SwiperSlide>
+                    <div className={`flex-1 w-full flex justify-between items-start gap-10 px-11`} >
+                        <Image src="/../assets/slide1.jpeg" fill  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+ />
+                    </div>
+                </SwiperSlide> */}
                 <SwiperSlide>
                 <div className={`flex-1 flex justify-between items-start gap-10 px-11`} >
                         <div className={`${textColor}`}>
