@@ -28,7 +28,7 @@ const page = () => {
                     <div className='py-2 flex items-center justify-center w-full'>Nos aéroports nationaux
                     </div>
                     <p className='mb-3 italic text-lg text-center'>
-                        La RVA gere {data?.filter(aero => aero.typeAero).length} aéroports nationaux
+                        La RVA gére {data?.filter(aero => aero.typeAero).length} aéroports nationaux
                     </p>
                 </div>
             }
