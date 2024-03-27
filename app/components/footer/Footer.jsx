@@ -72,19 +72,45 @@
 
 
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from "next/image"
 import logoRva from "./../../assets/logoRva.png"
 import styles from './footer.module.css'
 import { bgPrimary, bgSecondary, colorSecondary } from './../../style/global'
 import { bgSecondaryColor } from '../../style/global';
 import { MapPinIcon } from 'lucide-react'
+import { SITEWEB_URL } from './../../fcts/helper'
+import { ArrowUpOutlined } from '@ant-design/icons'
 
-const soulignement = "w-[70px] h-1 bg-blue-300 mb-10";
+const soulignement = "w-[70px] h-[3px] bg-blue-300 mb-10";
 const titre = `text-[${bgSecondary}]`;
 
 
 const Footer = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const isBrowser = () => typeof window !== 'undefined'; //The approach recommended by Next.js
+  const scrollToTop = () => {
+    if (!isBrowser()) return;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  const handleScroll = () => {
+
+    if (window.scrollY > 100) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+  useEffect(() => {
+    // Add scroll event listener when the component mounts
+    window.addEventListener('scroll', handleScroll);
+
+    // Remove the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <div className="pt-10 w-full overflow-x-hidden border-t-2 bg-slate-200">
       <div className=' flex flex-col md:flex-col lg:flex-row justify-between px-10 md:px-60 lg:px-60 gap-10 '>
@@ -105,7 +131,7 @@ const Footer = () => {
           <div className="w-full bg-yellow-500">&nbsp;</div>
           <div className="w-full bg-red-500">&nbsp;</div>
         </div>
-        <div className="px-4 md:px-4 lg:px-0 grid grid-cols-2 grid- lg:flex lg:flex-row  min-h-[320px]" style={{ backgroundColor: bgPrimary }}>
+        <div className="px-4 md:px-4 lg:px-0 grid grid-cols-2 grid- lg:flex lg:flex-row  min-h-[320px] bg-accent-foreground" style={{ backgroundColor: bgPrimary, backdropFilter: "revert-layer", backgroundImage: `url(${SITEWEB_URL + "fond.png"})`, backgroundPosition: "left center", backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
           <div className="w-1/2 lg:w-1/5 xs:w-5/5 flex flex-col gap-4 text-center justify-center items-center">
             <Image src={logoRva} width={200} height={80} alt='' />
             <p className="text-center text-white">
@@ -159,6 +185,13 @@ const Footer = () => {
         </div>
       </div>
       <div className="bg-blue-900 text-sm text-center text-white border-t-0 py-3 border-white">copyright © 2023 Régie des Voies Aeriennes | Mentions légales</div>
+      <button
+        className={`fixed bottom-0 right-0 bg-white shadow-md rounded-full p-4 mr-6 mb-[41px] z-50 items-center text-xs flex gap-2`}
+        onClick={scrollToTop}
+      >
+        {/* BACK TO TOP */}
+        <ArrowUpOutlined color='white' />
+      </button>
     </div>
   )
 }

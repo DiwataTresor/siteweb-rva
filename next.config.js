@@ -7,7 +7,8 @@ const nextConfig = {
             "lh3.googleusercontent.com",
             "indexrdc.com",
             "pmes.vercell.app",
-            "gdb.voanews.com"
+            "gdb.voanews.com",
+            "images.unsplash.com"
         ]
     }
 }

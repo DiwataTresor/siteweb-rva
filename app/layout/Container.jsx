@@ -3,11 +3,12 @@ import { bg } from '../CONST/global'
 import {Image} from "@nextui-org/react";
 import tourcontrol from './../assets/tourcontrol.jpeg' 
 
-const Container = ({children,header, headerBg, headerBgImg}) => {
+const Container = ({children,header,hideHeader, headerBg, headerBgImg, padding,cls}) => {
   return (
-    <div className='w-full'>
+    <div className={`w-full `}>
         {
-          <div className={`backdrop-blur-3xl bg-opacity-5 bg-no-repeat bg-cover bg-center ${headerBg || bg} w-[100%] flex justify-between p-[100px] text-white`} style={{backgroundImage:headerBgImg?`url(${headerBgImg})`:"none"}}>
+          !hideHeader &&
+          <div className={`${cls} backdrop-blur-3xl  bg-no-repeat bg-center  ${headerBg || bg} w-[100%] flex  ${padding==false?null:'p-[100px]'} text-white text-5xl font-bold`} style={{backgroundSize:"cover", backgroundPosition:"top", backgroundImage:headerBgImg?`url(${headerBgImg})`:"none"}}>
            {header}
           </div>
         }

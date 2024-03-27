@@ -1,4 +1,4 @@
-export const bg="bg-blue-700";
+export const bg="bg-blue-900";
 export const bgMin="bg-blue-400";
 export const textColor="text-blue-950";
 export const textColorSecond="text-red-500";

@@ -1,0 +1,98 @@
+"use client"
+import React from 'react'
+import Container from "./../layout/Container"
+import Section from '../layout/Section'
+// import { Image } from "@nextui-org/react";
+// import  from "next/image";
+import { Carousel } from 'antd';
+import { Button,Image } from '@nextui-org/react';
+import { ArrowRight, ArrowRightIcon, Calendar, CalendarDays, ChevronRight, Newspaper, Rss } from 'lucide-react';
+import Link from 'next/link';
+import {actus} from "./../data/liste"
+import { Slide } from 'react-awesome-reveal';
+
+const page = () => {
+    
+    const Card = ({ id, img, titre, description, dtPublication }) => {
+        return (<div className='w-[400px]'>
+            <div className='w-[100%] h-[200px]'>
+                <Image src={img} width={"100%"} />
+            </div>
+        </div>)
+    }
+    const contentStyle = {
+        height: '360px',
+        color: '#fff',
+        lineHeight: '160px',
+        textAlign: 'center',
+
+    };
+    return (
+        <Container
+        header={
+            <div className='text-3xl  items-center justify-start flex flex-col w-full '>
+                <h2 className='font-bold text-5xl flex gap-3 items-center'><Newspaper strokeWidth={2} size={35} /> Nos Actualités</h2>
+                <p className='text-lg'>Restez informé de tout ce qui se passe à la RVA</p>
+            </div>
+        } headerBgImg={"/fondactualite.png"}
+        headerBg={"bg-gray-200"}
+        cls={"border-b-0 shadow-sm border-red-400 bg-center"}
+        >
+    
+        <Section  padding={false} cls={"px-[200px] bg-gray-100"} >
+            {/* <Carousel effect="fade" autoplay={true} autoplaySpeed={2000} dots={true}>
+                {
+                    actus.map((actu) => (
+                        <div className='bg-blue-950 h-[350px] text-white rounded-md flex flex-col items-center justify-center py-2'>
+                            <div className='flex flex-row items-center justify-center'>
+                                <div className='font-bold text-center w-[70%]  flex flex-col justify-between h-full gap-10 mt-10'>
+                                    <span className='text-3xl font-bold text-start bg-blue-400 w-fit px-4 rounded-r-full py-4 line-clamp-1'>{actu.titre}</span>
+                                    <p className='px-2 line-clamp-3 font-extralight text-justify pr-12 text-xl'>
+                                        {actu.description}
+                                    </p>
+                                    <p className='px-2 flex items-center justify-center'>
+                                        <Link href={`/actualites/${actu.id}`}> 
+                                            <Button radius='full' color='danger' className='text-white' size='lg'>Lire l'article</Button>
+                                        </Link>
+                                    </p>
+                                </div>
+                                <div className='flex-1 px-4'>
+                                    <Image className='rounded-md' src={actu.img} width={400} height={400} />
+                                </div>
+                            </div>
+
+                        </div>
+                    ))
+                }
+            </Carousel> */}
+            <div className='mt-10 grid grid-cols-3 gap-3 bg-white'>
+                {
+                    actus.map(actu => (
+                        <Slide duration={800}>
+                        <div className='flex flex-col gap-3 border-b-none py-3 w-full overflow-hidden bg-white px-3 rounded-sm'>
+                            <div className='flex flex-col gap-2'>
+                                <div className='font-semibold text-center flex items-center justify-center text-md line-clamp-1 rounded-lg py-3 underline'>
+                                    <ChevronRight /> {actu.titre}
+                                </div>
+                                <p className='italic text-sm text-center flex gap-2 items-center justify-center font-thin'>
+                                    <CalendarDays color='orange' size={14} /> Publié {"01/02/2024"}
+                                </p>
+                                <div className='w-full'><Image src={actu.img} isZoomed fill className='rounded-md'  /></div>
+                                <p className='text-justify line-clamp-3'>{actu.description}</p>
+                                <p className='flex items-center justify-center'>
+                                    <Link href={`/actualites/${actu?.id}`}>
+                                        <Button color='danger' radius='full' variant='solid'>Lire la suite</Button>
+                                    </Link>
+                                </p>
+                            </div>
+                        </div>
+                        </Slide>
+                    ))
+                }
+            </div>
+        </Section>
+    </Container>
+    )
+}
+
+export default page
