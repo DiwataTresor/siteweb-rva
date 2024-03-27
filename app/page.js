@@ -22,7 +22,7 @@ import { SITEWEB_URL, oldUrl } from './fcts/helper'
 const { Meta } = Card;
 import { Fade,Rotate, Slide as SlideAnim, Zoom } from "react-awesome-reveal";
 import CardHome from './components/Home/Card'
-import SlideHome from './components/home/Slide'
+import SlideHome from './components/Home/Slide'
 import CountUp from 'react-countup';
 
 
