@@ -31,7 +31,7 @@ const titre2 = "text-white font-bold text-3xl ";
 
 
 
-export const Head = () => {
+export const Entete = () => {
   return (
     <div className='w-full overflow-hidden h-auto'>
 
@@ -103,7 +103,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between">
       <Container
         padding={false}
-        header={<Head />}
+        header={<Entete />}
         headerBg={"bg-white"}
       // headerBg={"bg-blue-900"}
       >
