@@ -53,7 +53,7 @@ const Slide = () => {
 
         //     </Swiper>
         // </div>
-        <div className='w-full px-2'>
+        <div className='w-full px-2 mt-[50px]'>
             <Swiper
                 spaceBetween={20}
                 slidesPerView={1}

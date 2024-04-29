@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       
-      <body className={poppins.className}>
+      <body className={nunito.className}>
       <MainLayout children={children} />
       {/* <div>{children}</div> */}
       </body>

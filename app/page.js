@@ -19,11 +19,12 @@ import Section from './layout/Section'
 import { ButtonDanger } from './layout/Button'
 import Motdg from './home/Motdg'
 import { SITEWEB_URL, oldUrl } from './fcts/helper'
-const { Meta } = Card;
 import { Fade,Rotate, Slide as SlideAnim, Zoom } from "react-awesome-reveal";
 import CardHome from './components/Home/Card'
 import SlideHome from './components/Home/Slide'
 import CountUp from 'react-countup';
+import LinkNative from "next/link"
+const { Meta } = Card;
 
 
 const titre1 = "text-yellow-600 font-bold text-xl";
@@ -103,10 +104,11 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between">
       <Container
         padding={false}
-        header={<Entete />}
+        header={""}
         headerBg={"bg-white"}
       // headerBg={"bg-blue-900"}
       >
+        <iframe src={`${oldUrl}`} className="h-[710px] w-full z-10 -mt-[100px]" />
         <Section cls={"bg-gray-100 px-[200px] py-30 bg-[url('/7.png')] flex flex-col items-center justify-center"}>
           <p className='font-thin text-3xl mb-3 flex gap-3 items-center justify-start '>
             <ArrowRight strokeWidth={1} /> À la une
@@ -152,7 +154,7 @@ export default function Home() {
             />
 
           </div>
-          <div className='flex justify-center items-center py-4'><Button variant='solid' color='danger' radius='full'>Toutes les actualités</Button></div>
+          <div className='flex justify-center items-center py-4'><LinkNative href='/actualites'><Button variant='solid' color='danger' radius='full'>Toutes les actualités</Button></LinkNative> </div>
         </Section>
         <Section cls={"bg-blue-950 h-content px-[250px] flex flex-col gap-4"}>
           <p className={titre1} style={{ textAlign: "center" }}>Que faisons-nous ?</p>

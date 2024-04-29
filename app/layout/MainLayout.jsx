@@ -11,16 +11,16 @@ const MainLayout = ({ children }) => {
   return (
     <NextUIProvider>
       
-      <div className={`${bg} w-full py-1 shadow-sm px-[250px]`}>
+      <div className={`${bg} w-full pt-1 shadow-sm mb-20`}>
         <Header />
       </div>
-      <div>
+      {/* <div>
         <div className="flex h-[7px] px-[0px]">
           <div className="w-full bg-blue-500">&nbsp;</div>
           <div className="w-full bg-yellow-500">&nbsp;</div>
           <div className="w-full bg-red-500">&nbsp;</div>
         </div>
-      </div>
+      </div> */}
       {children}
       <footer>
         <Footer />

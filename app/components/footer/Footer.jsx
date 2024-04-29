@@ -115,7 +115,7 @@ const Footer = () => {
     <div className="pt-10 w-full overflow-x-hidden border-t-2 bg-slate-200">
       <div className=' flex flex-col md:flex-col lg:flex-row justify-between px-10 md:px-60 lg:px-60 gap-10 '>
         <div className="border-l-2 border-blue-400 text-blue-400 pl-2 md:pl-6 lg-pl-6">
-          <h2 className="text-xl md:text-3xl lg:text-3xl">Newsletters</h2>
+          <h2 className="text-xl md:text-3xl lg:text-3xl">Lettre d'information</h2>
           <p className="text-sm">Restez informé de toutes nos activités, inscrivez-vous maintenant</p>
         </div>
         <div>

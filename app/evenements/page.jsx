@@ -39,7 +39,7 @@ const page = () => {
     return (
         <Container
             headerBgImg={"https://images.unsplash.com/photo-1484156818044-c040038b0719?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YWZyaWNhbnMlMjBldmVudHxlbnwwfHwwfHx8MA%3D%3D"}
-            header={<div className='py-10 flex items-center justify-center w-full'><CalendarRange  size={40}/> Evènements</div>}
+            header={<div className='py-10  flex items-center justify-center w-full'><CalendarRange  size={40}/> Evènements</div>}
             cls={"border-b-0 shadow-sm border-red-400 bg-center"}
         >
             <Section>
