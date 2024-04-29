@@ -32,20 +32,7 @@ const titre2 = "text-white font-bold text-3xl ";
 
 
 
-export const Entete = () => {
-  return (
-    <div className='w-full overflow-hidden h-auto'>
 
-      {/* <Slide /> */}
-      <Carousel autoplay={true} className='flex flex-col gap-5 '>
-        <SlideHome lieu={"Kinshasa"} titre={"Réforme au sein de la RVA"} />
-        <SlideHome lieu={"Kinshasa"} titre={"Informatisation de l'Aeroport de Goma"} />
-        <SlideHome lieu={"Kinshasa"} titre={"Récrutement des ATC à kinshasa"} />
-        <SlideHome lieu={"Kinshasa"} titre={"Nouvel aéroport à Mbuji mayi"} />
-      </Carousel>
-    </div>
-  )
-}
 export const Actu = ({ titre, description, dt, img }) => {
   const imgDistant="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuvd8dsLLCROuEg10o5FqctqKDTRZGbXWewQ&usqp=CAU";
   return (
