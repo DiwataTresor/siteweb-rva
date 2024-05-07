@@ -1,10 +1,12 @@
 "use client"
 import Cookies from "js-cookie"
 export const SITEWEB_URL="http://localhost:3002/";
-// export const BACKEND_URL="http://localhost/root/backend-rva-siteweb/";
-export const oldUrl="https://projetsite.rva.cd/index2.php"
 // export const SITEWEB_URL="https://indexrdc.com/";
-export const BACKEND_URL="http://api2.rva.cd/siteweb/";
+
+// export const BACKEND_URL="http://localhost/root/backend-rva-siteweb/";
+export const BACKEND_URL="https://api2.rva.cd/siteweb/";
+
+export const oldUrl="https://projetsite.rva.cd/index2.php"
 
 
 // export const BACKEND_URL="http://oxerode.com/envoimail/";

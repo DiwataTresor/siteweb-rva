@@ -79,8 +79,9 @@ import styles from './footer.module.css'
 import { bgPrimary, bgSecondary, colorSecondary } from './../../style/global'
 import { bgSecondaryColor } from '../../style/global';
 import { MapPinIcon } from 'lucide-react'
-import { SITEWEB_URL } from './../../fcts/helper'
+import { SITEWEB_URL, postData } from './../../fcts/helper'
 import { ArrowUpOutlined } from '@ant-design/icons'
+import { Spin, message } from 'antd'
 
 const soulignement = "w-[70px] h-[3px] bg-blue-300 mb-10";
 const titre = `text-[${bgSecondary}]`;
@@ -88,6 +89,7 @@ const titre = `text-[${bgSecondary}]`;
 
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [spinningNewsletter,setSpinningNewsletter]=useState(false)
   const isBrowser = () => typeof window !== 'undefined'; //The approach recommended by Next.js
   const scrollToTop = () => {
     if (!isBrowser()) return;
@@ -101,6 +103,21 @@ const Footer = () => {
       setIsVisible(false);
     }
   };
+  const handleSubmitNewsletter=(e) => {
+    e.preventDefault();
+    setSpinningNewsletter(true);
+    let data=Object.fromEntries(new FormData(e.target));
+    postData("addEmailnewsletter",data).then(r=>{
+      if(r.success){
+        message.success("Votre inscription s'est bien faite");
+        document.getElementById("formulaire").reset();
+      }else{
+        message.error("Echec d'enregistrement");
+      }
+    }).finally(()=>{
+      setSpinningNewsletter(false)
+    })
+  }
   useEffect(() => {
     // Add scroll event listener when the component mounts
     window.addEventListener('scroll', handleScroll);
@@ -119,10 +136,14 @@ const Footer = () => {
           <p className="text-sm">Restez informé de toutes nos activités, inscrivez-vous maintenant</p>
         </div>
         <div>
+          <Spin spinning={spinningNewsletter}>
+          <form id="formulaire" onSubmit={handleSubmitNewsletter}>
           <div className="border flex flex-row rounded-tl-lg rounded-br-lg flex-wrap overflow-hidden" style={{ borderColor: bgSecondary }}>
-            <input type="text" className={`w-[120px] md:w-[120px] lg:w-[300px] outline-none flex-1 text-sm pl-4 ${colorSecondary}`} placeholder="Votre adresse Email" />
-            <button className={`${bgSecondaryColor} h-[40px] text-white px-2`}>S'INSCRIRE</button>
+            <input required={true} type="email" name='email' className={`w-[120px] md:w-[120px] lg:w-[300px] outline-none flex-1 text-sm pl-4 ${colorSecondary}`} placeholder="Votre adresse Email" />
+            <button type='submit' className={`${bgSecondaryColor} h-[40px] text-white px-2`}>S'INSCRIRE</button>
           </div>
+          </form>
+          </Spin>
         </div>
       </div>
       <div className="pt-5">

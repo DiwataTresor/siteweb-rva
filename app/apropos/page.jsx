@@ -1,8 +1,9 @@
 import React from 'react'
 import Section from '../layout/Section'
 import Image from 'next/image'
-import { Home } from 'lucide-react'
+import { Home, Info, InfoIcon } from 'lucide-react'
 import Container from '../layout/Container'
+
 
 
 const Card = ({ children }) => {
@@ -15,7 +16,11 @@ const Card = ({ children }) => {
 const page = () => {
 
   return (
-    <Container cls={"px-[20px] lg:px-[240px] bg-white "}  headerBgImg={"/fondtourcontrol.png"}  header={<h4 className='text-4xl font-bold w-full flex items-center justify-center'>A Propos de la RVA</h4>}>
+    <Container
+      headerBgImg={"https://images.unsplash.com/photo-1484156818044-c040038b0719?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YWZyaWNhbnMlMjBldmVudHxlbnwwfHwwfHx8MA%3D%3D"}
+      header={<div className='py-10  flex items-center justify-center w-full text-3xl gap-4'><InfoIcon  size={40}/> A Propos de la RVA</div>}
+      cls={"border-b-0 shadow-sm border-red-400 bg-center"}
+    >
       {/* <h2 className='text-center text-[40px] font-extralight justify-start items-start flex mb-3'>A Propos de la RVA</h2> */}
      
         {/* <p className='text-center text-[60px] font-extralight justify-center items-center flex'>Régie des Voies Aériennes</p> */}

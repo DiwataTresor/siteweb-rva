@@ -3,7 +3,7 @@ import React from 'react'
 import Container from '../layout/Container'
 import { Button, Image } from '@nextui-org/react'
 import Section from '../layout/Section'
-import { CalendarDays, CalendarRange, FolderArchive, MapPin } from 'lucide-react'
+import { CalendarDays, CalendarRange, FolderArchive, MapPin } from 'lucide-react' 
 import { Fade } from 'react-awesome-reveal'
 
 const Presentation = ({ id, numero,lieu, titre, description, img }) => {

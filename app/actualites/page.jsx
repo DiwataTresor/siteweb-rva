@@ -1,18 +1,20 @@
 "use client"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Container from "./../layout/Container"
 import Section from '../layout/Section'
 // import { Image } from "@nextui-org/react";
 // import  from "next/image";
 import { Carousel } from 'antd';
 import { Button,Image } from '@nextui-org/react';
-import { ArrowRight, ArrowRightIcon, Calendar, CalendarDays, ChevronRight, Newspaper, Rss } from 'lucide-react';
+import { ArrowRight, ArrowRightIcon, Calendar, CalendarDays, ChevronRight, ChevronRightCircleIcon, Newspaper, Rss } from 'lucide-react';
 import Link from 'next/link';
-import {actus} from "./../data/liste"
+// import {actus} from "./../data/liste"
 import { Slide } from 'react-awesome-reveal';
+import { BACKEND_URL, getData } from '../fcts/helper';
+import moment from 'moment';
 
 const page = () => {
-    
+    const [actus,setActus] =useState([])
     const Card = ({ id, img, titre, description, dtPublication }) => {
         return (<div className='w-[400px]'>
             <div className='w-[100%] h-[200px]'>
@@ -27,6 +29,13 @@ const page = () => {
         textAlign: 'center',
 
     };
+
+
+    useEffect(() => {
+        getData("adminActualite").then((data) =>{
+            setActus(data.data);
+        })
+    },[])
     return (
         <Container
         header={
@@ -39,7 +48,7 @@ const page = () => {
         cls={"border-b-0 shadow-sm border-red-400 bg-center"}
         >
     
-        <Section  padding={false} cls={"px-[200px] bg-gray-100"} >
+        <Section  padding={false} cls={"px-[150px] bg-gray-100"} >
             {/* <Carousel effect="fade" autoplay={true} autoplaySpeed={2000} dots={true}>
                 {
                     actus.map((actu) => (
@@ -71,16 +80,16 @@ const page = () => {
                         <Slide duration={800}>
                         <div className='flex flex-col gap-3 border-b-none py-3 w-full overflow-hidden bg-white px-3 rounded-sm'>
                             <div className='flex flex-col gap-2'>
-                                <div className='font-semibold text-center flex items-center justify-center text-md line-clamp-1 rounded-lg py-3 underline'>
-                                    <ChevronRight /> {actu.titre}
+                                <div className='font-bold text-center flex gap-3 items-center justify-center text-md line-clamp-1 rounded-lg py-3 '>
+                                    <ChevronRightCircleIcon size={14} /> {actu.titre}
                                 </div>
                                 <p className='italic text-sm text-center flex gap-2 items-center justify-center font-thin'>
-                                    <CalendarDays color='orange' size={14} /> Publié {"01/02/2024"}
+                                    <CalendarDays color='orange' size={14} /> Publié le : {moment(actu.datePub).format('DD/MM/YYYY HH:mm')}
                                 </p>
-                                <div className='w-full'><Image src={actu.img} isZoomed fill className='rounded-md'  /></div>
-                                <p className='text-justify line-clamp-3'>{actu.description}</p>
+                                <div className='w-full max-h-[200px]'><Image src={BACKEND_URL+ actu.img} isZoomed fill className='rounded-md'  /></div>
+                                <p className='text-justify line-clamp-3'>{actu.contenu}</p>
                                 <p className='flex items-center justify-center'>
-                                    <Link href={`/actualites/${actu?.id}`}>
+                                    <Link href={`/actualites/${actu?.slug}`}>
                                         <Button color='danger' radius='full' variant='solid'>Lire la suite</Button>
                                     </Link>
                                 </p>

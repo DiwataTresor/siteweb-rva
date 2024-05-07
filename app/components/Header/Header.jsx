@@ -314,7 +314,7 @@ const Header = () => {
   return (
     <>
       <nav
-        className="bg-[#16243d] border-gray-200 shadow-md w-screen over"
+        className="bg-[#16243d] border-gray-200 shadow-md w-screen over z-50"
         style={{ backgroundColor: style.bg }}
       >
         <div className={`flex bg-white py-3 ${padding}`}>
@@ -648,7 +648,7 @@ const Header = () => {
         </div>
       </nav>
       <div className="hidden md:hidden lg:block">
-        <Menu />
+        {/* <Menu /> */}
       </div>
     </>
   );
