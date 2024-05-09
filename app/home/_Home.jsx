@@ -18,7 +18,7 @@ import { Divider as DividerAnt, Card, Carousel } from 'antd'
 import Section from './../layout/Section'
 import { ButtonDanger } from './../layout/Button'
 import Motdg from './../home/Motdg'
-import { BACKEND_URL, SITEWEB_URL, getData, oldUrl } from './../fcts/helper'
+import { API_URL, BACKEND_URL, SITEWEB_URL, getData, oldUrl } from './../fcts/helper'
 import { Fade,Rotate, Slide as SlideAnim, Zoom } from "react-awesome-reveal";
 import CardHome from './../components/Home/Card'
 import SlideHome from './../components/Home/Slide'
@@ -94,6 +94,8 @@ export default function Home() {
     const [actus,setActus]=useState([]);
     const [dataHome,setDataHome]=useState({});
     useEffect(() =>{
+      console.log(API_URL);
+      alert(API_URL);
         getData("adminActualite").then((data) =>{
             let newActusList=[]
             for(var i=0;i<4;i++){
@@ -102,6 +104,9 @@ export default function Home() {
             }
             setActus(newActusList);
             
+        }).catch(err=>{
+        alert("erreur");
+        console.log(err);
         })
         getData("homeData").then((data)=>{
           setDataHome(data?.data);
