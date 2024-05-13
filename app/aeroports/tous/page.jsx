@@ -15,7 +15,7 @@ const page = () => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        fetch(API_URL+"?aeroports",{method:"GET"}).then(r=>r.json()).then(d => {
+        fetch(API_URL+"?qry=aeroports",{method:"GET"}).then(r=>r.json()).then(d => {
             setData(d.data);
             setLoading(false)
         })

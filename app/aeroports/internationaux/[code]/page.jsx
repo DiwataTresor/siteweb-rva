@@ -22,7 +22,7 @@ const page = ({params}) => {
         maps:null
     })
     useEffect(() =>{
-        fetch(API_URL+"?aeroportByCode&code="+params.code,{method:"GET"}).then(r=>r.json()).then(r=>{
+        fetch(API_URL+"?qry=aeroportByCode&code="+params.code,{method:"GET"}).then(r=>r.json()).then(r=>{
         let detailReturned=r?.detail;
        // alert(r?.data?.ville)
         setDetail({

@@ -32,7 +32,7 @@ const page = () => {
 
 
     useEffect(() => {
-        fetch(API_URL+"?adminActualite",{method:"GET"}).then(r=>r.json()).then((data) =>{
+        fetch(API_URL+"?qry=adminActualite",{method:"GET"}).then(r=>r.json()).then((data) =>{
             setActus(data.data);
         })
     },[])
@@ -76,7 +76,7 @@ const page = () => {
             </Carousel> */}
             <div className='mt-10 grid grid-cols-3 gap-3 bg-white'>
                 {
-                    actus.map(actu => (
+                    actus?.map(actu => (
                         <Slide duration={800}>
                         <div className='flex flex-col gap-3 border-b-none py-3 w-full overflow-hidden bg-white px-3 rounded-sm'>
                             <div className='flex flex-col gap-2'>

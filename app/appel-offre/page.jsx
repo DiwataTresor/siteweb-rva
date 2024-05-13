@@ -20,7 +20,7 @@ export default function page() {
     const [documentsAll, setDocumentsAll] = useState([]);
 
     useEffect(() => {
-        fetch(API_URL+"?infoutile").then(r=>r.json()).then((r) => {
+        fetch(API_URL+"?qry=infoutile").then(r=>r.json()).then((r) => {
             setInfos(r?.data);
             let newD = [];
             r.data?.filter(info => (info?.fichier == null))?.forEach(i => {
