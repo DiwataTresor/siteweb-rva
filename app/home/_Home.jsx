@@ -95,8 +95,8 @@ export default function Home() {
     const [dataHome,setDataHome]=useState({});
     useEffect(() =>{
       console.log(API_URL);
-      alert(API_URL);
-        getData("adminActualite").then((data) =>{
+     
+        fetch(API_URL+"?qry=adminActualite",{method:"GET"}).then(r=>r.json()).then((data) =>{
             let newActusList=[]
             for(var i=0;i<4;i++){
                 
@@ -105,7 +105,7 @@ export default function Home() {
             setActus(newActusList);
             
         }).catch(err=>{
-        alert("erreur");
+       
         console.log(err);
         })
         getData("homeData").then((data)=>{
