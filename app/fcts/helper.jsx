@@ -20,7 +20,7 @@ export const isMobile=()=>{
 export const getData=async(qry,id=null)=>{
   const profil=JSON.parse(Cookies.get("profil")) || {};
   let resultat={};
-  await fetch(`${API_URL}?qry=${qry}&id=${profil?.id}`).then(r=>r.json()).then(r=>{
+  await fetch(`${API_URL}?qry=${qry}&id=${profil?.id}`,{method:"GET"}).then(r=>r.json()).then(r=>{
     resultat=r;
   }).catch(r=>{
     resultat={"success":false,"msg":r}
