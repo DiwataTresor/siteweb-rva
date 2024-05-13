@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import Container from '../../../layout/Container'
 import { Info, Library, Map, MapPin, Newspaper, Plane, PlaneLanding, Receipt } from 'lucide-react'
 import { Image } from '@nextui-org/react'
-import { getData } from '../../../fcts/helper'
+import { API_URL, getData } from '../../../fcts/helper'
 
 
 const page = ({params}) => {
@@ -22,7 +22,7 @@ const page = ({params}) => {
         maps:null
     })
     useEffect(() =>{
-       getData("aeroportByCode&code="+params.code).then(r=>{
+        fetch(API_URL+"?aeroportByCode&code="+params.code,{method:"GET"}).then(r=>r.json()).then(r=>{
         let detailReturned=r?.detail;
        // alert(r?.data?.ville)
         setDetail({

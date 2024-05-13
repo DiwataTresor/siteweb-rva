@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { Input, Divider, Table, Space, Tag } from 'antd';
 
 import { Tabs, Tab } from "@nextui-org/react"
-import { BACKEND_URL, getData } from "../fcts/helper";
+import { API_URL, BACKEND_URL, getData } from "../fcts/helper";
 import { ArrowDownCircle, BookMarked, Bookmark, CalendarCheck, CalendarDays, File, Info, LinkIcon, Megaphone, PaperclipIcon } from "lucide-react";
 import moment from "moment";
 import Link from "next/link";
@@ -20,7 +20,7 @@ export default function page() {
     const [documentsAll, setDocumentsAll] = useState([]);
 
     useEffect(() => {
-        getData("infoutile").then((r) => {
+        fetch(API_URL+"?infoutile").then(r=>r.json()).then((r) => {
             setInfos(r?.data);
             let newD = [];
             r.data?.filter(info => (info?.fichier == null))?.forEach(i => {

@@ -6,7 +6,7 @@ import { Button, Image } from '@nextui-org/react'
 import { Fade } from 'react-awesome-reveal'
 import { Code, Filter, FolderOpen, MapIcon, MapPin, PhoneCall, PinIcon, Plane, TowerControl, TowerControlIcon } from 'lucide-react'
 import Presentation from "./../Card"
-import { getData } from '../../fcts/helper'
+import { API_URL, getData } from '../../fcts/helper'
 import { Spin } from 'antd'
 import Link from 'next/link'
 
@@ -15,7 +15,7 @@ const page = () => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        getData("aeroports").then(d => {
+        fetch(API_URL+"?aeroports",{method:"GET"}).then(r=>r.json()).then(d => {
             setData(d.data);
             setLoading(false)
         })

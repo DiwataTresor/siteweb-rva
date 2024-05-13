@@ -3,14 +3,14 @@ import React, { useEffect, useState } from 'react'
 import Section from '../../layout/Section'
 import { actus } from '../../data/liste'
 import Image from 'next/image'
-import { BACKEND_URL, getData } from '../../fcts/helper'
+import { API_URL, BACKEND_URL, getData } from '../../fcts/helper'
 import moment from 'moment'
 // import { Image } from '@nextui-org/react'
 
 const page = ({params}) => {
     const [actu,setActu]=useState(null)
     useEffect(()=>{
-        getData("actualiteBySlug&slug="+params.detail).then((res) =>{
+        fetch(API_URL+"?actualiteBySlug&slug="+params.detail,{method:"GET"}).then(r=>r.json()).then((res) =>{
             setActu(res.data);
         })    
         // setActu(actus.find(a=>a.id==params.detail));

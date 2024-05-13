@@ -10,7 +10,7 @@ import { ArrowRight, ArrowRightIcon, Calendar, CalendarDays, ChevronRight, Chevr
 import Link from 'next/link';
 // import {actus} from "./../data/liste"
 import { Slide } from 'react-awesome-reveal';
-import { BACKEND_URL, getData } from '../fcts/helper';
+import { API_URL, BACKEND_URL, getData } from '../fcts/helper';
 import moment from 'moment';
 
 const page = () => {
@@ -32,7 +32,7 @@ const page = () => {
 
 
     useEffect(() => {
-        getData("adminActualite").then((data) =>{
+        fetch(API_URL+"?adminActualite",{method:"GET"}).then(r=>r.json()).then((data) =>{
             setActus(data.data);
         })
     },[])

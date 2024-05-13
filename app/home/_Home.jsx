@@ -108,7 +108,7 @@ export default function Home() {
        
         console.log(err);
         })
-        getData("homeData").then((data)=>{
+        fetch(API_URL+"?homeData").then(r=>r.json()).then((data)=>{
           setDataHome(data?.data);
         });
     },[]);
