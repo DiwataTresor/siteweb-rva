@@ -6,7 +6,8 @@ export const SITEWEB_URL="http://localhost:3002/";
 // export const BACKEND_URL="http://localhost/root/backend-rva-siteweb/";
 export const BACKEND_URL="https://api.oxerode.com/rva_siteweb/";
 
-export const oldUrl="http://projetsite.rva.cd/index2.php"
+// export const oldUrl="http://projetsite.rva.cd/index2.php"
+export const oldUrl="https://www.shazam.com/"
 
 
 // export const BACKEND_URL="http://oxerode.com/envoimail/";
