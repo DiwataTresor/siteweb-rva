@@ -10,7 +10,7 @@ const Presentation = ({ id, numero,lieu, titre, description, img }) => {
     return (
         <Fade duration={1000} direction='down' >
         <div className='mb-14'>
-            <div className='font-semibold text-center flex items-center justify-center text-md line-clamp-1 bg-gray-200 rounded-lg py-3'>{titre}</div>
+            <div className='font-semibold text-center flex items-center justify-center text-md line-clamp-1 bg-blue-950 text-white rounded-lg py-3'>{titre}</div>
             <div className='flex flex-row gap-4 my-4 justify-center items-center'>
                 <div className='italic text-sm flex gap-2 justify-start items-center'>
                     <CalendarDays color='orange' size={14} />Du 01/03/2024 

@@ -255,18 +255,18 @@ export default function Home() {
           </Zoom>
         </Section>
         <Section cls={""}>
-          <div className='bg-yellow-600 flex gap-3 justify-between px-[250px] py-4 h-auto'>
-            <div className='border rounded-md flex items-center justify-center w-full border-yellow-400 shadow-sm h-[300px] text-white'><SectionCounter nbre={90} titre={"Entités"} icone={<MapPinned strokeWidth={1} size={40} color='white' />} /></div>
-            <div className='border rounded-md flex items-center justify-center w-full border-yellow-400 shadow-sm h-[300px] text-white'><SectionCounter nbre={54} titre={"Aéroports internationaux"} icone={<TowerControl strokeWidth={1} size={40} color='white' />} /></div>
-            <div className='border rounded-md flex items-center justify-center w-full border-yellow-400 shadow-sm h-[300px] text-white'><SectionCounter nbre={64} titre={"Aéroport Nationaux"} icone={<TowerControl strokeWidth={1} size={40} color='white' />} /></div>
-            <div className='border rounded-md flex items-center justify-center w-full border-yellow-400 shadow-sm h-[300px] text-white'><SectionCounter nbre={30} titre={"Aéroport Aérodromes"} icone={<TowerControl strokeWidth={1} size={40} color='white' />} /></div>
+          <div className='bg-zinc-400 flex gap-3 justify-between px-[250px] py-4 h-auto'>
+            <div className='border rounded-md flex items-center justify-center w-full border-blue-0  shadow-md h-[300px] text-white'><SectionCounter nbre={90} titre={"Entités"} icone={<MapPinned strokeWidth={1} size={40} color='white' />} /></div>
+            <div className='border rounded-md flex items-center justify-center w-full border-blue-0  shadow-md h-[300px] text-white'><SectionCounter nbre={54} titre={"Aéroports internationaux"} icone={<TowerControl strokeWidth={1} size={40} color='white' />} /></div>
+            <div className='border rounded-md flex items-center justify-center w-full border-blue-0  shadow-md h-[300px] text-white'><SectionCounter nbre={64} titre={"Aéroport Nationaux"} icone={<TowerControl strokeWidth={1} size={40} color='white' />} /></div>
+            <div className='border rounded-md flex items-center justify-center w-full border-blue-0  shadow-md h-[300px] text-white'><SectionCounter nbre={30} titre={"Aéroport Aérodromes"} icone={<TowerControl strokeWidth={1} size={40} color='white' />} /></div>
 
           </div>
         </Section>
-        <Section cls={"bg-blue-950 h-content px-[250px] flex flex-col gap-4"}>
+        <Section cls={" h-content px-[250px] flex flex-col gap-4"}>
           {/* <p className={titre1} yle={{ textAlign: "center" }}>Que faisons-nous ?</p> */}
-          <p className={titre2} style={{ textAlign: "center" }}>Programmes des vols</p>
-          <div className='flex gap-4 py-11'>
+          <p className={titre2} style={{color:"blue", textAlign: "center" }}>Programmes des vols</p>
+          <div className='flex gap-4 py-11 justify-center items-center'>
             <CardHome icon={<TowerControl size={50} strokeWidth={1} />} titre={"Exemple 1"}>
               <div className='flex flex-col justify-between items-center h-full'>
                 Morem area are psum dolor sitteme odern sectet aweur adipiscing always.<br />

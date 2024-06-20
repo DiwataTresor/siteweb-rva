@@ -74,11 +74,11 @@ const page = () => {
                     ))
                 }
             </Carousel> */}
-            <div className='mt-10 grid grid-cols-3 gap-3 bg-white'>
+            <div className='mt-10 grid grid-cols-3 gap-3 bg-white p-3'>
                 {
                     actus?.map(actu => (
                         <Slide duration={800}>
-                        <div className='flex flex-col gap-3 border-b-none py-3 w-full overflow-hidden bg-white px-3 rounded-sm'>
+                        <div className='flex flex-col gap-3 border-b-none w-full overflow-hidden bg-zinc-100 px-3 rounded-sm mb-8 shadow-sm py-4'>
                             <div className='flex flex-col gap-2'>
                                 <div className='font-bold text-center flex gap-3 items-center justify-center text-md line-clamp-1 rounded-lg py-3 '>
                                     <ChevronRightCircleIcon size={14} /> {actu.titre}

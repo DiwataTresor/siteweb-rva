@@ -10,7 +10,7 @@ const page = () => {
        <Section padding={"250px"} cls={"flex flex-col gap-5"}>
             
             <p className='text-justify'>La mission fondamentale de la Régie des voies aériennes est de gérer l'ensemble du patrimoine du pays relevant de sa compétence en vue d'assure la sécurité de la navigation aérienne selon les normes de l'organisation de l'aviation civile internationale (OACI)</p>
-            <p className='text-justify mb-7 text-3xl text-orange-700 underline'>Les missions Confiées à la RVA sont : </p>
+            <p className='text-justify mb-7 text-3xl text-indigo-700 underline'>Les missions Confiées à la RVA sont : </p>
             <div className='flex gap-10'>
                 <div className='flex flex-col gap-5 w-1/2 italic'>
                     <div className='text-justify items-center flex gap-3'><CheckCircle2 size={20} color='green' colorInterpolation={"green"} enableBackground={true} /> Construire, aménager, entretenir et exploiter les aéroports et leurs dépendances;</div>
