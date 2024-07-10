@@ -448,7 +448,7 @@ const Header = () => {
                   style={nunito.style}
                   className={section1Text}
                 >
-                  Av. Aerodrome N°548 / Ndolo-Barumba
+                  Av. Aerodrome N°548 / Ndolo-Barumbu
                 </h4>
                 <span className={nunito.className}>
                   <a

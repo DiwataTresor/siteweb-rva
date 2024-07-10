@@ -26,6 +26,9 @@ import CountUp from 'react-countup';
 import LinkNative from "next/link"
 import { useEffect, useState } from 'react'
 import moment from 'moment'
+import {vols} from "./../data/liste"
+import { Skeleton } from '@nextui-org/react'
+import Titre from "./../layout/Titre"
 
 const { Meta } = Card;
 
@@ -123,7 +126,7 @@ export default function Home() {
         <iframe src={`${oldUrl}`} className="h-[710px] w-full z-10 -mt-[30px]" />
         <Section cls={"bg-gray-100 px-[200px] py-30 bg-[url('/7.png')] flex flex-col items-center justify-center"}>
           <p className='font-thin text-3xl mb-3 flex gap-3 items-center justify-start '>
-            <ArrowRight strokeWidth={1} /> À la une
+            <Titre text={"À la une"} icon={<ArrowRight strokeWidth={1} />} />
           </p>
           <div className='grid grid-cols-4 gap-3 flex-wrap justify-center items-center'>
             {
@@ -139,44 +142,15 @@ export default function Home() {
                   } />
               ))
             }
-
-            {/* <Actu img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuvd8dsLLCROuEg10o5FqctqKDTRZGbXWewQ&usqp=CAU"
-              titre={"Avancement des travaux"}
-              dt="Le 10/01/2024"
-              description={
-                <div>
-                  <div className='line-clamp-2'>La Direction Général a organisé un echange de voeux</div>
-
-                </div>
-              }
-            />
-            <Actu img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe0HsXLy3belnxrtSPUu18_3X-1M5ygh51VQ&usqp=CAU"
-              titre={"Aerport de Luano en réhabilitation"}
-              dt="Le 10/01/2024"
-              description={
-                <div>
-                  <div className='line-clamp-2'>La Direction Général a organisé un echange de voeux</div>
-
-                </div>
-              }
-            />
-            <Actu img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe0HsXLy3belnxrtSPUu18_3X-1M5ygh51VQ&usqp=CAU"
-              titre={"Aerport de Luano en réhabilitation"}
-              dt="Le 10/01/2024"
-              description={
-                <div>
-                  <div className='line-clamp-2'>La Direction Général a organisé un echange de voeux</div>
-
-                </div>
-              }
-            /> */}
-
           </div>
-          <div className='flex justify-center items-center py-14'><LinkNative href='/actualites'><Button variant='solid' color='danger' radius='full'>Toutes les actualités</Button></LinkNative> </div>
+          <div className='flex justify-center items-center py-14'><LinkNative href='/actualites'><Button variant='solid' color='primary' radius='full'>Toutes les actualités</Button></LinkNative> </div>
         </Section>
         <Section cls={"bg-blue-950 h-content px-[150px] flex flex-col gap-4"}>
-          <p className={titre1} style={{ textAlign: "center" }}>Que faisons-nous ?</p>
-          <p className={titre2} style={{ textAlign: "center" }}>Avec des Services qui garantissent la sécurité aéroportuaire</p>
+          {/* <p className={titre1} style={{ textAlign: "center" }}>Que faisons-nous ?</p> */}
+          <div className='content-center items-center text-center flex flex-row justify-center'>
+          <Titre text="Que faisons-nous ?" />
+          </div>
+          <p className={titre2} style={{ textAlign: "center" }}>Avec des Services qui garantissent la sécurité aérienne</p>
           <div className='flex gap-4 py-11 justify-center items-center'>
             <CardHome icon={<TowerControl size={50} strokeWidth={1} />} titre={"Exemple 1"}>
               <div className='flex flex-col justify-between items-center h-full'>
@@ -212,7 +186,7 @@ export default function Home() {
             </CardHome>
           </div>
         </Section>
-        <Section cls={"px-[150px]  backdrop-opacity-20 bg-center bg-cover filter bg-gray-100"}>
+        <Section cls={"px-[150px]  backdrop-opacity-20 bg-center bg-cover filter "}>
           <Zoom duration={1000}>
             {/* <div className="flex gap-14 items-center justify-center bg-white shadow-sm rounded-md p-3 w-full">
               <div className='flex-1 flex flex-col gap-6 pt-2'>
@@ -233,19 +207,19 @@ export default function Home() {
               className={`card-shadow dark:border-neutral-90 relative flex h-auto w-full select-none flex-col items-start justify-center overflow-hidden rounded-2xl border border-neutral-100 p-5 shadow-sm transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-sm dark:border-neutral-200 dark:hover:shadow-white/10`}
             >
               <div className="absolute right-0 top-0 h-24 w-full rounded-2xl bg-gradient-to-r from-[#9cb4ea]  to-[#4279d2] opacity-20 blur-3xl"></div>
-              <div className="mb-0 flex h-fit flex-row items-start gap-3">
-                <Image
-                  className="m-0 block h-45 w-35 rounded-sm object-cover"
+              <div className="mb-0 flex h-fit flex-row items-start gap-14">
+                <img
+                  className="m-0 block h-36 w-36 rounded-full"
                   src={BACKEND_URL + dataHome?.photoDg}
                 />
                 <div className="mb-0 flex h-fit flex-col items-start">
                   <h3 className="m-0 text-2xl font-bold  text-gray-900 dark:text-gray-900 ">
-                    {"Blaise Ngoma Leonnard"}
+                    {"NGOMA MBAKI Leonnard"}
                   </h3>
                   <p className="font-regular m-0 text-center text-sm text-gray-600 dark:text-gray-400">
-                    {"Directeur General"}
+                    {"Directeur Général"}
                   </p>
-                  <p className="mb-0 mt-3 text-left text-2xl font-thin text-gray-600 md:text-2xl dark:text-gray-500">
+                  <p className="mb-0 mt-3 text-left text-lg font-thin text-gray-600 md:text-2xl dark:text-gray-500">
                     {dataHome?.motDg}
                   </p>
                 </div>
@@ -255,7 +229,7 @@ export default function Home() {
           </Zoom>
         </Section>
         <Section cls={""}>
-          <div className='bg-zinc-400 flex gap-3 justify-between px-[250px] py-4 h-auto'>
+          <div className={`bg-zinc-400 flex gap-3 justify-between px-[250px] py-4 h-auto bg-cover bg-opacity-15 bg-no-repeat bg-[url('https://plus.unsplash.com/premium_photo-1679829691115-434b172ef850?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YWVyb25hdXRpcXVlfGVufDB8fDB8fHww')]`}>
             <div className='border rounded-md flex items-center justify-center w-full border-blue-0  shadow-md h-[300px] text-white'><SectionCounter nbre={90} titre={"Entités"} icone={<MapPinned strokeWidth={1} size={40} color='white' />} /></div>
             <div className='border rounded-md flex items-center justify-center w-full border-blue-0  shadow-md h-[300px] text-white'><SectionCounter nbre={54} titre={"Aéroports internationaux"} icone={<TowerControl strokeWidth={1} size={40} color='white' />} /></div>
             <div className='border rounded-md flex items-center justify-center w-full border-blue-0  shadow-md h-[300px] text-white'><SectionCounter nbre={64} titre={"Aéroport Nationaux"} icone={<TowerControl strokeWidth={1} size={40} color='white' />} /></div>
@@ -265,40 +239,22 @@ export default function Home() {
         </Section>
         <Section cls={" h-content px-[250px] flex flex-col gap-4"}>
           {/* <p className={titre1} yle={{ textAlign: "center" }}>Que faisons-nous ?</p> */}
-          <p className={titre2} style={{color:"blue", textAlign: "center" }}>Programmes des vols</p>
+          <div className={"justify-center items-center flex flex-row"}><Titre text="Programmes des vols" /></div>
           <div className='flex gap-4 py-11 justify-center items-center'>
-            <CardHome icon={<TowerControl size={50} strokeWidth={1} />} titre={"Exemple 1"}>
-              <div className='flex flex-col justify-between items-center h-full'>
-                Morem area are psum dolor sitteme odern sectet aweur adipiscing always.<br />
-                <div className='text-center justify-center items-center flex w-full'>
-                  <Button variant='shadow' color='primary'>Decouvrir <ArrowRightCircle /></Button>
-                </div>
-              </div>
-            </CardHome>
-            <CardHome icon={<Plane size={50} strokeWidth={1} />} titre={"Exemple 2"}>
-              <div className='flex flex-col justify-between items-center h-full'>
-                Morem area are psum dolor sitteme odern sectet aweur adipiscing always.<br />
-                <div className='text-center justify-center items-center flex w-full'>
-                  <Button variant='shadow' color='primary'>Decouvrir <ArrowRightCircle /></Button>
-                </div>
-              </div>
-            </CardHome>
-            <CardHome icon={<ShieldCheck size={50} strokeWidth={1} />} titre={"Exemple 3"}>
-              <div className='flex flex-col justify-between items-center h-full'>
-                Morem area are psum dolor sitteme odern sectet aweur adipiscing always.<br />
-                <div className='text-center justify-center items-center flex w-full'>
-                  <Button variant='shadow' color='primary'>Decouvrir <ArrowRightCircle /></Button>
-                </div>
-              </div>
-            </CardHome>
-            <CardHome icon={<BaggageClaim size={50} strokeWidth={1} />} titre={"Exemple 4"}>
-              <div className='flex flex-col justify-between items-center h-full'>
-                Morem area are psum dolor sitteme odern sectet aweur adipiscing always.<br />
-                <div className='text-center justify-center items-center flex w-full'>
-                  <Button variant='shadow' color='primary'>Decouvrir <ArrowRightCircle /></Button>
-                </div>
-              </div>
-            </CardHome>
+            {
+              vols.map(vol=>(
+                <CardHome icon={vol.icon} titre={vol.nom}>
+                  <div className='flex flex-col justify-between items-center h-full'>
+                    {vol.contenu}
+                    <div className='text-center justify-center items-center flex w-full'>
+                      <Button variant='shadow' color='primary'>Detail <ArrowRightCircle /></Button>
+                    </div>
+                  </div>
+                </CardHome>
+              ))
+            }
+            
+
           </div>
         </Section>
       </Container>
