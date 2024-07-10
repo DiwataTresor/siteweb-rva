@@ -12,6 +12,8 @@ import Link from 'next/link';
 import { Slide } from 'react-awesome-reveal';
 import { API_URL, BACKEND_URL, getData } from '../fcts/helper';
 import moment from 'moment';
+import Actu from '../layout/Actu';
+import Titre from '../layout/Titre';
 
 const page = () => {
     const [actus,setActus] =useState([])
@@ -49,6 +51,7 @@ const page = () => {
         >
     
         <Section  padding={false} cls={"px-[150px] bg-gray-100"} >
+            <div className='flex items-center justify-center'><Titre text={"Nos nouvelles"} icon={<Newspaper />} /></div>
             {/* <Carousel effect="fade" autoplay={true} autoplaySpeed={2000} dots={true}>
                 {
                     actus.map((actu) => (
@@ -74,11 +77,11 @@ const page = () => {
                     ))
                 }
             </Carousel> */}
-            <div className='mt-10 grid grid-cols-3 gap-3 bg-white p-3'>
+            <div className='mt-10 grid grid-cols-4 gap-3 '>
                 {
                     actus?.map(actu => (
                         <Slide duration={800}>
-                        <div className='flex flex-col gap-3 border-b-none w-full overflow-hidden bg-zinc-100 px-3 rounded-sm mb-8 shadow-sm py-4'>
+                        {/* <div className='flex flex-col gap-3 border-b-none w-full overflow-hidden bg-zinc-100 px-3 rounded-sm mb-8 shadow-sm py-4'>
                             <div className='flex flex-col gap-2'>
                                 <div className='font-bold text-center flex gap-3 items-center justify-center text-md line-clamp-1 rounded-lg py-3 '>
                                     <ChevronRightCircleIcon size={14} /> {actu.titre}
@@ -93,8 +96,9 @@ const page = () => {
                                         <Button color='danger' radius='full' variant='solid'>Lire la suite</Button>
                                     </Link>
                                 </p>
-                            </div>
-                        </div>
+                            </div> */}
+                            <Actu titre={actu.titre} img={actu.img} description={actu.contenu}  lien={`/actualites/${actu?.slug}`} showDate={true} dt={moment(actu.datePub).format('DD/MM/YYYY HH:mm')} />
+                        {/* </div> */}
                         </Slide>
                     ))
                 }

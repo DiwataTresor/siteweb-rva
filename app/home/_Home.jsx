@@ -29,6 +29,7 @@ import moment from 'moment'
 import {vols} from "./../data/liste"
 import { Skeleton } from '@nextui-org/react'
 import Titre from "./../layout/Titre"
+import Actu from "./../layout/Actu"
 
 const { Meta } = Card;
 
@@ -37,44 +38,7 @@ const titre1 = "text-yellow-600 font-bold text-xl";
 const titre2 = "text-white font-bold text-3xl ";
 
 
-export const Actu = ({ titre, description, dt, img }) => {
-  //   const imgDistant="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuvd8dsLLCROuEg10o5FqctqKDTRZGbXWewQ&usqp=CAU";
-  const imgDistant = BACKEND_URL + img;
-  return (
-    <Fade duration={2000}>
-      <div className=''>
-        <div
-          style={{
-            width: "100%",
-          }}
-          // className={`flex gap-4 hover:shadow-md p-3 rounded-sm bg-[url("${img ? img : imgDistant}")]`}
-          className={`w-[300px] h-[350px] bg-white rounded-md overflow-hidden hover:shadow-sm hover:bg-gray-50`
-          }
-        >
-          <img src={imgDistant} className='w-full max-h-[200px]' style={{ filter: "brightness(100%) contrast(100%) saturate(100%) blur(0px) hue-rotate(0deg)" }} />
-          <div className='text-start mb-16 text-gray-800 px-4 py-2 flex flex-col'>
-            <div className='text-start font-bold text-[16px] mb-4 line-clamp-1 '>{titre}</div>
-            <div className='w-full text-justify line-clamp-4'>
-              {description}
-              {/* <div className='flex w-[100%] justify-end'>
-              <div className='text-[11px] font-semibold text-black py-4'>Publié le {dt}</div>
-            </div> */}
-              {/* <div className='flex w-[100%] justify-center'>
-                <a className='bg-blue-800 text-white rounded-full px-3 py-1 flex justify-center items-center gap-3' href="https://">
-                  <Link size={14} /> Lire article
-                </a>
-              </div> */}
 
-            </div>
-            <div className='flex-1 mt-4 items-center justify-center w-full text-center'>
-              <Button color='warning' size='sm' variant='solid' radius='full' className='text-white hover:border-1 hover:shadow-sm box-border'>Detail article</Button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </Fade>
-  )
-}
 export const SectionCounter = ({ titre, nbre, icone }) => {
   return (
     <div className='flex flex-col gap-4 justify-center items-center w-full rounded-md '>
@@ -125,7 +89,7 @@ export default function Home() {
       >
         <iframe src={`${oldUrl}`} className="h-[710px] w-full z-10 -mt-[30px]" />
         <Section cls={"bg-gray-100 px-[200px] py-30 bg-[url('/7.png')] flex flex-col items-center justify-center"}>
-          <p className='font-thin text-3xl mb-3 flex gap-3 items-center justify-start '>
+          <p className='font-thin text-3xl mb-3 flex gap-3 items-center '>
             <Titre text={"À la une"} icon={<ArrowRight strokeWidth={1} />} />
           </p>
           <div className='grid grid-cols-4 gap-3 flex-wrap justify-center items-center'>
@@ -136,7 +100,7 @@ export default function Home() {
                   img={a.img}
                   description={
                     <div>
-                      <div className='line-clamp-2'>{a.contenu}</div>
+                      <div className='line-clamp-4'>{a.contenu}</div>
 
                     </div>
                   } />
@@ -152,7 +116,7 @@ export default function Home() {
           </div>
           <p className={titre2} style={{ textAlign: "center" }}>Avec des Services qui garantissent la sécurité aérienne</p>
           <div className='flex gap-4 py-11 justify-center items-center'>
-            <CardHome icon={<TowerControl size={50} strokeWidth={1} />} titre={"Exemple 1"}>
+            <CardHome icon={<TowerControl size={50} strokeWidth={1} />} titre={"Sécurité"}>
               <div className='flex flex-col justify-between items-center h-full'>
                 Morem area are psum dolor sitteme odern sectet aweur adipiscing always.<br />
                 <div className='text-center justify-center items-center flex w-full'>
@@ -160,7 +124,7 @@ export default function Home() {
                 </div>
               </div>
             </CardHome>
-            <CardHome icon={<Plane size={50} strokeWidth={1} />} titre={"Exemple 2"}>
+            <CardHome icon={<Plane size={50} strokeWidth={1} />} titre={"Fiabilité"}>
               <div className='flex flex-col justify-between items-center h-full'>
                 Morem area are psum dolor sitteme odern sectet aweur adipiscing always.<br />
                 <div className='text-center justify-center items-center flex w-full'>
@@ -168,7 +132,7 @@ export default function Home() {
                 </div>
               </div>
             </CardHome>
-            <CardHome icon={<ShieldCheck size={50} strokeWidth={1} />} titre={"Exemple 3"}>
+            <CardHome icon={<ShieldCheck size={50} strokeWidth={1} />} titre={"Information"}>
               <div className='flex flex-col justify-between items-center h-full'>
                 Morem area are psum dolor sitteme odern sectet aweur adipiscing always.<br />
                 <div className='text-center justify-center items-center flex w-full'>
@@ -176,7 +140,7 @@ export default function Home() {
                 </div>
               </div>
             </CardHome>
-            <CardHome icon={<BaggageClaim size={50} strokeWidth={1} />} titre={"Exemple 4"}>
+            <CardHome icon={<BaggageClaim size={50} strokeWidth={1} />} titre={"Fierté"}>
               <div className='flex flex-col justify-between items-center h-full'>
                 Morem area are psum dolor sitteme odern sectet aweur adipiscing always.<br />
                 <div className='text-center justify-center items-center flex w-full'>
