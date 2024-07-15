@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import Section from '../layout/Section'
 
@@ -5,6 +6,7 @@ import { Home, Info, InfoIcon } from 'lucide-react'
 import Container from '../layout/Container'
 import Titre from "./../layout/Titre"
 import { Image } from '@nextui-org/react'
+import Reveal,{Slide} from 'react-awesome-reveal'
 
 
 const Card = ({ children }) => {
@@ -22,51 +24,54 @@ const page = () => {
       header={<div className='py-10  flex items-center justify-center w-full text-3xl gap-4'><InfoIcon size={40} /> A Propos de la RVA</div>}
       cls={"border-b-0 shadow-sm border-red-400 bg-center"}
     >
-      {/* <h2 className='text-center text-[40px] font-extralight justify-start items-start flex mb-3'>A Propos de la RVA</h2> */}
-
-      {/* <p className='text-center text-[60px] font-extralight justify-center items-center flex'>Régie des Voies Aériennes</p> */}
       <Section padding={"250px"} cls={"mb-[150px]"}>
         <div className='flex flex-col lg:flex-row gap-10 mt-7 items-center justify-between'>
-          {/* <div className='w-[100%] lg:w-[40%]'>
-            <img className='w-full h-auto rounded-md' src={"/tourcontrol.jpeg"} />
-          </div> */}
+         
           <div className='flex-1 text-center gap-7 flex flex-col'>
-            {/* <p className='text-center text-[30px] font-extralight justify-start items-start flex'>A Propos de la Régie des Voies Aériennes</p> */}
 
             <div className='flex gap-20'>
               <div className='w-full'>
+              <Slide direction='down'>
                 <div className='items-center justify-center flex mb-10'>
                   <Titre text="Qui sommes-nous ?" />
                 </div>
                 <p>
                   Collaboratively generate customer directed deliverables with client-focused models. Energistically re-engineer turnkey customer service through covalent "outside the box" thinking. Enthusiastically iterate user-centric ROI and resource maximizing human capital. Quickly engage fully researched applications with bricks-and-clicks.
                 </p>
+              </Slide>
               </div>
               <div className='w-full'>
+              <Slide direction='up'>
                 <Image src='https://storage.googleapis.com/images.digitalcongo.net/Provinces/Kinshasa/ndjili-international-airport-kinshasa-040220-800px.jpg' />
+              </Slide>
               </div>
             </div>
           </div>
         </div>
       </Section>
 
-      <Section padding={"250px"} cls={"mb-[30px]"}>
+      <Section padding={"250px"} cls={"mb-[30px] bg-gray-100 py-[50px]"}>
         <div className='flex gap-20'>
           <div className='w-full'>
+            <Slide direction='left'>
             <Image src='https://s.rfi.fr/media/display/c5438f9c-10e7-11ea-8ca6-005056bf7c53/w:980/p:16x9/361161660_79b7a6d02e_0.jpg' />
+            </Slide>
           </div>
           <div className='w-full'>
+            <Slide direction='right'>
             <div className='items-center justify-center flex mb-10'>
               <Titre text="Histoire de la RVA" />
             </div>
             <p>
               Collaboratively generate customer directed deliverables with client-focused models. Energistically re-engineer turnkey customer service through covalent "outside the box" thinking. Enthusiastically iterate user-centric ROI and resource maximizing human capital. Quickly engage fully researched applications with bricks-and-clicks.
             </p>
+            </Slide>
           </div>
 
         </div>
       </Section>
       <Section cls={"h-content bg-blue-950 py-[50px]"}>
+        <Slide direction='up'>
         <div className='flex items-center justify-center px-[250px] gap-4'>
           <Card>
             <div className='flex flex-col items-center justify-center  font-bold'>
@@ -93,6 +98,7 @@ const page = () => {
             </div>
           </Card>
         </div>
+        </Slide>
       </Section>
     </Container>
   )

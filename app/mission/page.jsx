@@ -7,7 +7,7 @@ import Titre from "./../layout/Titre"
 
 const page = () => {
   return (
-    <Container cls="" headerBgImg={"/tourcontrol.jpeg"} header={<h2 className='text-center justify-center items-center flex w-full text-5xl'><ChevronsRight size={40} />Notre mission</h2>}>
+    <Container cls="" headerBgImg={"/tourcontrol.jpeg"} header={<div className='flex flex-row items-center justify-center w-full'><div className='flex items-center gap-4 px-11 bg-blue-400 content-center text-3xl rounded-full py-2 bg-opacity-30 w-fit'><ChevronsRight size={40} />Notre mission</div></div>}>
        <Section padding={"250px"} cls={"flex flex-col gap-5"}>
             
             <p className='text-center font-bold mb-7 text-blue-900'>La mission fondamentale de la Régie des voies aériennes est de gérer l'ensemble du patrimoine du pays relevant de sa compétence en vue d'assure la sécurité de la navigation aérienne selon les normes de l'organisation de l'aviation civile internationale (OACI)</p>

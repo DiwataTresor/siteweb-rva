@@ -5,8 +5,8 @@ import Section from '../layout/Section'
 // import { Image } from "@nextui-org/react";
 // import  from "next/image";
 import { Carousel } from 'antd';
-import { Button,Image } from '@nextui-org/react';
-import { ArrowRight, ArrowRightIcon, Calendar, CalendarDays, ChevronRight, ChevronRightCircleIcon, Newspaper, Rss } from 'lucide-react';
+import { Button, Image } from '@nextui-org/react';
+import { AlertTriangle, ArrowRight, ArrowRightIcon, Calendar, CalendarDays, ChevronRight, ChevronRightCircleIcon, Newspaper, Rss } from 'lucide-react';
 import Link from 'next/link';
 // import {actus} from "./../data/liste"
 import { Slide } from 'react-awesome-reveal';
@@ -16,7 +16,7 @@ import Actu from '../layout/Actu';
 import Titre from '../layout/Titre';
 
 const page = () => {
-    const [actus,setActus] =useState([])
+    const [actus, setActus] = useState([])
     const Card = ({ id, img, titre, description, dtPublication }) => {
         return (<div className='w-[400px]'>
             <div className='w-[100%] h-[200px]'>
@@ -34,25 +34,32 @@ const page = () => {
 
 
     useEffect(() => {
-        fetch(API_URL+"?qry=adminActualite",{method:"GET"}).then(r=>r.json()).then((data) =>{
+        fetch(API_URL + "?qry=adminActualite", { method: "GET" }).then(r => r.json()).then((data) => {
             setActus(data.data);
         })
-    },[])
+    }, [])
     return (
         <Container
-        header={
-            <div className='text-3xl  items-center justify-start flex flex-col w-full '>
-                <h2 className='font-bold text-5xl flex gap-3 items-center'><Newspaper strokeWidth={2} size={35} /> Nos Actualités</h2>
-                <p className='text-lg'>Restez informé de tout ce qui se passe à la RVA</p>
-            </div>
-        } headerBgImg={"/fondactualite.png"}
-        headerBg={"bg-gray-200"}
-        cls={"border-b-0 shadow-sm border-red-400 bg-center"}
+            header={
+                <div className='text-3xl  items-center justify-start flex flex-col w-full '>
+                    <h2 className='font-bold text-5xl flex gap-3 items-center'><Newspaper strokeWidth={2} size={35} /> Nos Actualités</h2>
+                    <p className='text-lg'>Restez informé de tout ce qui se passe à la RVA</p>
+                </div>
+            } headerBgImg={"/fondactualite.png"}
+            headerBg={"bg-gray-200"}
+            cls={"border-b-0 shadow-sm border-red-400 bg-center"}
         >
-    
-        <Section  padding={false} cls={"px-[150px] bg-gray-100"} >
-            <div className='flex items-center justify-center'><Titre text={"Nos nouvelles"} icon={<Newspaper />} /></div>
-            {/* <Carousel effect="fade" autoplay={true} autoplaySpeed={2000} dots={true}>
+            {/* <Section padding={false} cls={"px-[150px]"}>
+                <div className='flex items-center justify-center animate-pulse flex-col'>
+                    <Titre text="Urgent" icon={<AlertTriangle />} />
+                    <div className='w-full'>
+                        <img src='https://pbs.twimg.com/media/Ew7IeKEXIAEDEds.jpg' className='w-full' />
+                    </div>
+                </div>
+            </Section> */}
+            <Section padding={false} cls={"px-[150px] bg-gray-100"} >
+                <div className='flex items-center justify-center'><Titre text={"Nos nouvelles"} icon={<Newspaper />} /></div>
+                {/* <Carousel effect="fade" autoplay={true} autoplaySpeed={2000} dots={true}>
                 {
                     actus.map((actu) => (
                         <div className='bg-blue-950 h-[350px] text-white rounded-md flex flex-col items-center justify-center py-2'>
@@ -77,11 +84,12 @@ const page = () => {
                     ))
                 }
             </Carousel> */}
-            <div className='mt-10 grid grid-cols-4 gap-3 '>
-                {
-                    actus?.map(actu => (
-                        <Slide duration={800}>
-                        {/* <div className='flex flex-col gap-3 border-b-none w-full overflow-hidden bg-zinc-100 px-3 rounded-sm mb-8 shadow-sm py-4'>
+                <div className='mt-10 grid grid-cols-4 gap-3 '>
+
+                    {
+                        actus?.map(actu => (
+                            <Slide duration={800}>
+                                {/* <div className='flex flex-col gap-3 border-b-none w-full overflow-hidden bg-zinc-100 px-3 rounded-sm mb-8 shadow-sm py-4'>
                             <div className='flex flex-col gap-2'>
                                 <div className='font-bold text-center flex gap-3 items-center justify-center text-md line-clamp-1 rounded-lg py-3 '>
                                     <ChevronRightCircleIcon size={14} /> {actu.titre}
@@ -97,14 +105,14 @@ const page = () => {
                                     </Link>
                                 </p>
                             </div> */}
-                            <Actu titre={actu.titre} img={actu.img} description={actu.contenu}  lien={`/actualites/${actu?.slug}`} showDate={true} dt={moment(actu.datePub).format('DD/MM/YYYY HH:mm')} />
-                        {/* </div> */}
-                        </Slide>
-                    ))
-                }
-            </div>
-        </Section>
-    </Container>
+                                <Actu titre={actu.titre} img={actu.img} description={actu.contenu} lien={`/actualites/${actu?.slug}`} showDate={true} dt={moment(actu.datePub).format('DD/MM/YYYY HH:mm')} />
+                                {/* </div> */}
+                            </Slide>
+                        ))
+                    }
+                </div>
+            </Section>
+        </Container>
     )
 }
 
